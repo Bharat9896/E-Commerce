@@ -94,6 +94,7 @@ export default function SignUp() {
       {/* Left Side - Different image for Sign Up to distinguish the pages */}
       <div className="auth-image-side signup-image">
         <div className="auth-image-overlay">
+            <img src="Sside.png" alt="image" />
           <h2>Join the Family</h2>
           <p>Create an account to track your orders and save your favorites.</p>
         </div>

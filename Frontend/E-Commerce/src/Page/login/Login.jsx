@@ -89,6 +89,7 @@ export default function Login() {
       {/* Left Side - Hidden on small screens, shows an elegant image on desktop */}
       <div className="login-image-side">
         <div className="login-image-overlay">
+            <img src="Sside.png" alt="image" />
           <h2>Handcrafted Elegance</h2>
           <p>Discover collections curated just for you.</p>
         </div>

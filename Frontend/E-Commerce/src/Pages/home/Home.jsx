@@ -1,54 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import './Home.css'; // Alag CSS file banayenge
+import React, { useState, useEffect } from "react";
+import "./Home.css";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Hero Slider Images (aap apni images daal sakte ho)
   const slides = [
     {
-      image: "https://via.placeholder.com/1920x800/ddd/333?text=Elegant+Gold+Jewellery",
-      title: "Elegant Jewellery Collection",
-      subtitle: "Timeless beauty for every occasion"
+      image:
+        "https://images.unsplash.com/photo-1617038220319-276d3cfab638",
+      title: "Roshni Jewellers",
+      subtitle: "Trusted Since 2015 • BIS Certified Gold",
     },
     {
-      image: "https://via.placeholder.com/1920x800/ddd/333?text=Wedding+Collection",
-      title: "Wedding Special Collection",
-      subtitle: "Flat 20% OFF"
+      image:
+        "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed",
+      title: "Wedding Collection",
+      subtitle: "Elegant Bridal Jewellery • Up to 20% OFF",
     },
     {
-      image: "https://via.placeholder.com/1920x800/ddd/333?text=Luxury+Jewels",
-      title: "Luxury Meets Tradition",
-      subtitle: "Handcrafted with Love"
-    }
+      image:
+        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f",
+      title: "Pure Gold & Diamond",
+      subtitle: "Hallmarked Jewellery with Lifetime Trust",
+    },
   ];
 
-  // Auto Slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 4000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="home-page">
+    <div className="home">
+
+    
+
       {/* HEADER */}
       <header className="header">
-        <div className="container">
-          <div className="logo">Elegant Jewels</div>
-          
-          <nav>
-            <a href="#" className="active">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-          </nav>
+        <div className="logo">💎 ROSHNI JEWELLERS</div>
 
-          <div className="header-icons">
-            <i className="fas fa-shopping-cart"></i>
-            <i className="fas fa-user" onClick={() => alert("Login/Signup Modal will open here")}></i>
-          </div>
+        <nav className="nav">
+          <a href="#">Home</a>
+          <a href="#">Gold</a>
+          <a href="#">Diamond</a>
+          <a href="#">Wedding</a>
+          <a href="#">Contact</a>
+        </nav>
+
+        <div className="actions">
+          <button className="btn">Visit Store</button>
+          <button className="btn">Book Appointment</button>
         </div>
       </header>
 
@@ -57,150 +61,71 @@ const Home = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`slide ${index === currentSlide ? 'active' : ''}`}
+            className={index === currentSlide ? "slide active" : "slide"}
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="hero-content">
+            <div className="overlay">
               <h1>{slide.title}</h1>
               <p>{slide.subtitle}</p>
-              <button className="shop-btn">Shop Now</button>
+              <button>Explore Collection</button>
             </div>
           </div>
         ))}
       </section>
 
-      {/* FEATURED CATEGORIES */}
-      <section className="section categories">
-        <div className="container">
-          <h2>Featured Categories</h2>
-          <div className="grid">
-            {['Rings', 'Necklaces', 'Earrings', 'Bracelets'].map((cat) => (
-              <div key={cat} className="category-card">
-                <h3>{cat}</h3>
-              </div>
-            ))}
-          </div>
+      {/* TRUST STRIP */}
+      <section className="trust">
+        <div>💎 100% Hallmarked Gold</div>
+        <div>🛡 Lifetime Trust</div>
+        <div>🚚 Free Delivery</div>
+        <div>💍 Wedding Specialist</div>
+      </section>
+
+      {/* COLLECTIONS */}
+      <section className="choices">
+        <h2>Our Collections</h2>
+        <div className="grid">
+          <div className="choice">Gold Jewellery</div>
+          <div className="choice">Diamond Jewellery</div>
+          <div className="choice">Bridal Sets</div>
+          <div className="choice">Daily Wear</div>
         </div>
       </section>
 
-      {/* TRENDING PRODUCTS */}
-      <section className="section trending">
-        <div className="container">
-          <h2>Trending Products</h2>
-          <div className="product-grid">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="product-card">
-                <img 
-                  src={`https://via.placeholder.com/300x300/ddd/333?text=Product+${i}`} 
-                  alt={`Product ${i}`} 
-                />
-                <h3>Product Name {i}</h3>
-                <p className="price">₹{ (20000 + i * 5000).toLocaleString('en-IN') }</p>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WEDDING OFFER */}
-      <section className="offer-section">
-        <div className="container">
-          <h2>FLAT 20% OFF - WEDDING COLLECTION</h2>
-          <button className="shop-btn">Shop Now</button>
-        </div>
-      </section>
-
-      {/* ABOUT / BRAND STORY */}
-      <section className="section about">
-        <div className="container">
-          <div className="about-grid">
-            <div className="about-text">
-              <h2>Our Story</h2>
-              <p>
-                Crafting timeless jewellery with love and precision since 2015. 
-                Every piece tells a story of elegance, tradition, and craftsmanship.
-              </p>
-            </div>
-            <div className="about-image">
-              <img 
-                src="https://via.placeholder.com/600x400/ddd/333?text=Our+Brand" 
-                alt="Brand Story" 
+      {/* PRODUCTS */}
+      <section className="products">
+        <h2>Featured Designs</h2>
+        <div className="grid">
+          {[1, 2, 3, 4].map((i) => (
+            <div className="product" key={i}>
+              <img
+                src={`https://via.placeholder.com/300x300?text=Gold+Design+${i}`}
+                alt=""
               />
+              <h3>Premium Gold Set {i}</h3>
+              <p>Starting ₹{(25000 + i * 7000).toLocaleString()}</p>
+              <button>View Details</button>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* CUSTOMER REVIEWS */}
-      <section className="section reviews">
-        <div className="container">
-          <h2>What Our Customers Say</h2>
-          <div className="review-grid">
-            <div className="review-card">
-              <div className="stars">★★★★★</div>
-              <p>"Amazing Quality!"</p>
-            </div>
-            <div className="review-card">
-              <div className="stars">★★★★★</div>
-              <p>"Loved the Design!"</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* INSTAGRAM GALLERY */}
-      <section className="section instagram">
-        <div className="container">
-          <h2>Follow Us on Instagram</h2>
-          <div className="insta-grid">
-            {[1,2,3,4].map((i) => (
-              <img 
-                key={i}
-                src={`https://via.placeholder.com/300x300/ddd/333?text=Insta+${i}`} 
-                alt={`Instagram ${i}`} 
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* NEWSLETTER */}
-      <section className="newsletter">
-        <div className="container">
-          <h2>Subscribe to our Newsletter</h2>
-          <div className="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
-          </div>
-        </div>
+      {/* ABOUT */}
+      <section className="about">
+        <h2>About Roshni Jewellers</h2>
+        <p>
+          Since 2015, we deliver pure gold, diamond & bridal jewellery with
+          trust, purity & craftsmanship. Every piece is BIS Hallmarked.
+        </p>
       </section>
 
       {/* FOOTER */}
       <footer>
-        <div className="container">
-          <div className="footer-grid">
-            <div>
-              <h4>Links</h4>
-              <p>Shop</p>
-              <p>New Arrivals</p>
-              <p>Best Sellers</p>
-            </div>
-            <div>
-              <h4>Contact</h4>
-              <p>Haryana, India</p>
-              <p>+91 98765 43210</p>
-            </div>
-            <div>
-              <h4>Social Media</h4>
-              <p>Instagram | Facebook</p>
-            </div>
-            <div>
-              <p>© 2026 Elegant Jewellery. All Rights Reserved.</p>
-            </div>
-          </div>
-        </div>
+        <p>📍 Main Market, Haryana</p>
+        <p>📞 +91 9876543210 | ✉ info@roshnijewellers.com</p>
+        <p>© 2026 Roshni Jewellers</p>
       </footer>
+
     </div>
   );
 };
