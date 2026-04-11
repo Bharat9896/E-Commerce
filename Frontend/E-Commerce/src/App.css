@@ -1,0 +1,155 @@
+/* VARIABLES */
+:root {
+  --accent: #c9a24a;
+  --accent-bg: rgba(201, 162, 74, 0.1);
+  --border: #e5e5e5;
+  --text: #111;
+  --shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: var(--text);
+}
+
+/* FULL WIDTH APP */
+#root, .home {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* CENTER SECTION (NOW WIDE) */
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 80px 10%;
+  gap: 30px;
+}
+
+/* HERO */
+.hero {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ICONS */
+.hero .base {
+  width: 220px;
+}
+
+.hero .framework {
+  position: absolute;
+  top: 20%;
+}
+
+.hero .vite {
+  position: absolute;
+  top: 60%;
+}
+
+/* NEXT STEPS FULL WIDTH */
+#next-steps {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 60px 10%;
+  border-top: 1px solid var(--border);
+}
+
+/* BOXES */
+#next-steps > div {
+  flex: 1;
+  padding: 40px;
+  background: #fafafa;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+#next-steps > div:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+}
+
+/* ICON */
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* LINKS */
+#next-steps ul {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+#next-steps ul a {
+  background: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+#next-steps ul a:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* SPACER */
+#spacer {
+  width: 100%;
+  height: 100px;
+}
+
+/* TICKS */
+.ticks {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* COUNTER */
+.counter {
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.counter:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  #center {
+    padding: 40px 20px;
+  }
+
+  #next-steps {
+    flex-direction: column;
+  }
+}
