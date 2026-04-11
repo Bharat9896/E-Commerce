@@ -19,7 +19,6 @@ body {
   font-family: "Poppins", sans-serif;
   background: radial-gradient(circle at top, #1a1a1a, var(--bg));
   color: var(--text);
-  overflow-x: hidden;
 }
 
 /* =========================
@@ -38,25 +37,13 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-/* LOGO */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-.logo-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* NAV */
 .nav {
   display: flex;
   gap: 25px;
@@ -89,7 +76,6 @@ body {
   width: 100%;
 }
 
-/* ACTION BUTTONS */
 .actions {
   display: flex;
   gap: 10px;
@@ -110,7 +96,6 @@ body {
   background: var(--gold);
   color: #000;
   box-shadow: 0 0 20px var(--gold-soft);
-  transform: translateY(-2px);
 }
 
 /* =========================
@@ -138,7 +123,7 @@ body {
   transform: scale(1);
 }
 
-/* OVERLAY */
+/* HERO OVERLAY */
 .overlay {
   height: 100%;
   display: flex;
@@ -146,10 +131,11 @@ body {
   justify-content: center;
   padding-left: 90px;
   background: linear-gradient(to right, rgba(0,0,0,0.85), transparent);
+  position: relative;
 }
 
 .overlay h1 {
-  font-size: 52px;
+  font-size: 55px;
   margin: 0;
 }
 
@@ -159,9 +145,14 @@ body {
   margin: 10px 0 20px;
 }
 
-/* BUTTON */
+/* ⭐ BUTTON FIXED TO BOTTOM CENTER */
 .overlay button {
-  width: 200px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 220px;
   padding: 12px;
   border: none;
   background: var(--gold);
@@ -174,7 +165,7 @@ body {
 
 .overlay button:hover {
   background: white;
-  transform: scale(1.05);
+  transform: translateX(-50%) scale(1.05);
 }
 
 /* =========================
@@ -212,15 +203,14 @@ body {
 .choice:hover, .product:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 40px rgba(212,175,55,0.15);
+  border-color: var(--gold-soft);
 }
 
-/* PRODUCT IMAGE */
 .product img {
   width: 100%;
   border-radius: 10px;
 }
 
-/* PRODUCT BUTTON */
 .product button {
   margin-top: 10px;
   padding: 10px 16px;
@@ -286,5 +276,10 @@ footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+
+  .overlay button {
+    width: 250px;
+    bottom: 30px;
   }
 }
