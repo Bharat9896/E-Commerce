@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css'; // We will create this next
-import logoImage from '../../assets/roshni-logo.png'; // Adjust path if needed, or use the placeholder
+import logoImage from '../../assets/Logo.png'; // Adjust path if needed, or use the placeholder
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -207,7 +207,7 @@ export default function SignUp() {
           </form>
 
           <div className="auth-switch-prompt">
-            Already have an account? <a href="Login.jsx">Sign In</a>
+            Already have an account? <a href="/Login">Sign In</a>
           </div>
 
         </div>
