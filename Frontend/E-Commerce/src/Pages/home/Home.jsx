@@ -38,20 +38,14 @@ const Home = () => {
   return (
     <div className="home">
 
-      {/* HEADER START */}
+      {/* HEADER */}
       <header className="header">
-
-        {/* LOGO */}
         <div className="logo">
-          <img
-            src="Logo.png"
-            alt="Roshni Jewellers"
-            className="logo-img"
-          />
           <span>ROSHNI JEWELLERS</span>
         </div>
-
-        {/* NAV */}
+  <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+    ☰
+  </div>
         <nav className="nav">
           <a href="#">Home</a>
           <a href="#">Gold</a>
@@ -60,26 +54,19 @@ const Home = () => {
           <a href="#">Contact</a>
         </nav>
 
-        {/* ACTIONS */}
         <div className="actions">
           <button className="btn" onClick={() => navigate("/signup")}>
             Signup
           </button>
-
-          <button className="btn" onClick={() => navigate("/login")}>
-            Login
-          </button>
         </div>
-
       </header>
-      {/* HEADER END */}
 
-      {/* HERO SLIDER */}
+      {/* HERO */}
       <section className="hero">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={index === currentSlide ? "slide active" : "slide"}
+            className={`slide ${index === currentSlide ? "active" : ""}`}
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             <div className="overlay">
@@ -100,18 +87,18 @@ const Home = () => {
       </section>
 
       {/* COLLECTIONS */}
-      <section className="choices">
+      <section className="section">
         <h2>Our Collections</h2>
         <div className="grid">
-          <div className="choice">Gold Jewellery</div>
-          <div className="choice">Diamond Jewellery</div>
-          <div className="choice">Bridal Sets</div>
-          <div className="choice">Daily Wear</div>
+          <div className="card">Gold Jewellery</div>
+          <div className="card">Diamond Jewellery</div>
+          <div className="card">Bridal Sets</div>
+          <div className="card">Daily Wear</div>
         </div>
       </section>
 
       {/* PRODUCTS */}
-      <section className="products">
+      <section className="section">
         <h2>Featured Designs</h2>
         <div className="grid">
           {[1, 2, 3, 4].map((i) => (
@@ -121,7 +108,7 @@ const Home = () => {
                 alt=""
               />
               <h3>Premium Gold Set {i}</h3>
-              <p>Starting ₹{(25000 + i * 7000).toLocaleString()}</p>
+              <p>₹ {(25000 + i * 5000).toLocaleString()}</p>
               <button>View Details</button>
             </div>
           ))}
@@ -130,22 +117,21 @@ const Home = () => {
 
       {/* ABOUT */}
       <section className="about">
-        <h2>About Roshni Jewellers</h2>
+        <h2>About Us</h2>
         <p>
-          Since 2015, we deliver pure gold, diamond & bridal jewellery with
-          trust, purity & craftsmanship.
+          Since 2015, we deliver pure gold, diamond & bridal jewellery with trust and craftsmanship.
         </p>
       </section>
 
       {/* FOOTER */}
       <footer>
-        <p>📍 Main Market, Haryana</p>
-        <p>📞 +91 9876543210 | ✉ info@roshnijewellers.com</p>
+        <p>📍 Haryana</p>
+        <p>📞 +91 9876543210</p>
         <p>© 2026 Roshni Jewellers</p>
       </footer>
 
     </div>
-  );
+  );  
 };
 
 export default Home;
