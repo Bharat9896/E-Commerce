@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -36,12 +38,20 @@ const Home = () => {
   return (
     <div className="home">
 
-    
-
-      {/* HEADER */}
+      {/* HEADER START */}
       <header className="header">
-        <div className="logo">💎 ROSHNI JEWELLERS</div>
 
+        {/* LOGO */}
+        <div className="logo">
+          <img
+            src="Logo.png"
+            alt="Roshni Jewellers"
+            className="logo-img"
+          />
+          <span>ROSHNI JEWELLERS</span>
+        </div>
+
+        {/* NAV */}
         <nav className="nav">
           <a href="#">Home</a>
           <a href="#">Gold</a>
@@ -50,11 +60,19 @@ const Home = () => {
           <a href="#">Contact</a>
         </nav>
 
+        {/* ACTIONS */}
         <div className="actions">
-          <button className="btn">Visit Store</button>
-          <button className="btn">Book Appointment</button>
+          <button className="btn" onClick={() => navigate("/signup")}>
+            Signup
+          </button>
+
+          <button className="btn" onClick={() => navigate("/login")}>
+            Login
+          </button>
         </div>
+
       </header>
+      {/* HEADER END */}
 
       {/* HERO SLIDER */}
       <section className="hero">
@@ -73,7 +91,7 @@ const Home = () => {
         ))}
       </section>
 
-      {/* TRUST STRIP */}
+      {/* TRUST */}
       <section className="trust">
         <div>💎 100% Hallmarked Gold</div>
         <div>🛡 Lifetime Trust</div>
@@ -115,7 +133,7 @@ const Home = () => {
         <h2>About Roshni Jewellers</h2>
         <p>
           Since 2015, we deliver pure gold, diamond & bridal jewellery with
-          trust, purity & craftsmanship. Every piece is BIS Hallmarked.
+          trust, purity & craftsmanship.
         </p>
       </section>
 
